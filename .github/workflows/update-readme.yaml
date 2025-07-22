@@ -1,0 +1,34 @@
+name: Update README with File Counts
+
+# 언제 실행할지 지정
+on:
+  push:
+    paths:
+      - '**/*.cpp'
+      - '**/*.py'
+      - '**/*.cs'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run file count script
+        run: python count_files.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add README.md
+          git commit -m 'Update README with file counts' || echo "No changes to commit"
+          git push
