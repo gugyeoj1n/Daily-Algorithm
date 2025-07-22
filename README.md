@@ -1,2 +1,3 @@
-# Algorithm
-Study how to solve algorithms (feat. solved.ac)
+### Daily Algorithm
+
+    지금까지 **24개의 문제**를 풀었습니다.
