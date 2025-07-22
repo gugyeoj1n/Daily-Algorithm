@@ -17,5 +17,5 @@ for root, dirs, files in os.walk('.'):
 total_count = sum(counts.values())
 
 with open('README.md', 'w', encoding='utf-8') as f:
-    f.write('### Daily Algorithm\n\n')
-    f.write(f'    지금까지 {total_count}개의 문제를 풀었습니다.\n')
+    f.write('### 🧩 Daily Algorithm\n\n')
+    f.write(f'    🔥 지금까지 {total_count}개의 문제를 풀었습니다.\n')
