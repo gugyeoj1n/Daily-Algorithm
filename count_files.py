@@ -2,7 +2,7 @@ import os
 
 EXCLUDE_FILE = os.path.basename(__file__)
 
-extensions = ['.cpp', '.py', '.cs']
+extensions = ['.cpp', '.py', '.cs', 'cc', 'js']
 counts = {ext: 0 for ext in extensions}
 
 for root, dirs, files in os.walk('.'):
