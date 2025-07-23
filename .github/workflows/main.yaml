@@ -1,15 +1,12 @@
 name: Update README with File Counts
 
-# 언제 실행할지 지정
 on:
-  push:
-    paths:
-      - '**/*.cpp'
-      - '**/*.py'
-      - '**/*.cs'
-      - '**/*.cc'
-      - '**/*.js'
+  schedule:
+    # cron 문법을 사용하며, UTC 기준입니다.
+    # 매일 자정 (00:00 KST)에 실행되도록 UTC 기준 15:00로 설정합니다.
+    - cron: '0 15 * * *'
       
+  # 수동 실행을 위해 workflow_dispatch는 남겨두는 것이 좋습니다.
   workflow_dispatch:
 
 jobs:
@@ -35,5 +32,6 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add README.md
-          git commit -m 'Update README with file counts' || echo "No changes to commit"
+          # 변경 사항이 있을 때만 커밋하도록 수정
+          git diff --quiet && git diff --staged --quiet || git commit -m "Docs: Update README with file counts"
           git push
