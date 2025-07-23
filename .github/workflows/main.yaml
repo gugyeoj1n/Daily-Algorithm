@@ -7,6 +7,9 @@ on:
       - '**/*.cpp'
       - '**/*.py'
       - '**/*.cs'
+      - '**/*.cc'
+      - '**/*.js'
+      
   workflow_dispatch:
 
 jobs:
