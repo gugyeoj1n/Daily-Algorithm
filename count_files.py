@@ -23,8 +23,6 @@ day_of_week = weekdays[now.weekday()]
 timestamp_str = now.strftime(f'%Y년 %m월 %d일 ({day_of_week}) %H:%M')
 
 with open('README.md', 'w', encoding='utf-8') as f:
-    f.write('### 🧩 Daily Algorithm\n')
-    f.write('[![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj={zriring})](https://solved.ac/{gugyeoj1n}) \n')
+    f.write('### 🧩 Daily Algorithm\n\n')
     f.write(f'    🔥 지금까지 {total_count}개의 문제를 풀었습니다.\n')
     f.write(f'    ⏰ {timestamp_str} 업데이트되었습니다.')
