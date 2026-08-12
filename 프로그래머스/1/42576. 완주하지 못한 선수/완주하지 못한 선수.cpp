@@ -1,25 +1,13 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
-    string answer = "";
-    map<string, int> marathon;
-    
-    for(const auto& part : participant) {
-        if(marathon.find(part) == marathon.end())
-            marathon.insert({ part, 0 });
-        else
-            marathon[part]++;
-    }
-    
-    for(const auto& comp : completion)
-        marathon[comp]--;
-    
-    for(const auto& m : marathon)
-        if(m.second == 0) answer = m.first;
-    
-    return answer;
+    unordered_map<string, int> m;
+    for(string s : participant) m[s]++;
+    for(string s : completion) m[s]--;
+    for(auto x : m) if(x.second) return x.first;
+    return "";
 }
